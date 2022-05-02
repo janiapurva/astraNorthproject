@@ -8,8 +8,13 @@ import DialogTitle from "@mui/material/DialogTitle";
 import Button from "@mui/material/Button";
 import { useDispatch } from "react-redux";
 import "./confirm.css";
+import Stepper from "@mui/material/Stepper";
+import Step from "@mui/material/Step";
+import StepLabel from "@mui/material/StepLabel";
 
 function Confirm() {
+  const steps = ["", "", ""];
+
   const location = useLocation();
   const dispatch = useDispatch();
   let navigate = useNavigate();
@@ -39,6 +44,11 @@ function Confirm() {
   return (
     <>
       <div className="full-layout">
+        <Stepper activeStep={2} alternativeLabel>
+          {steps.map((label) => (
+            <Step key={label}>{<StepLabel>{""}</StepLabel>}</Step>
+          ))}
+        </Stepper>
         <h1>Review</h1>
         <div>
           {" "}

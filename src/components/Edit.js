@@ -9,9 +9,11 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import { styled } from "@mui/material/styles";
-import Stack from "@mui/material/Stack";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import Stepper from "@mui/material/Stepper";
+import Step from "@mui/material/Step";
+import StepLabel from "@mui/material/StepLabel";
 
 import "./edit.css";
 
@@ -19,6 +21,7 @@ const Input = styled("input")({
   display: "none",
 });
 function Edit() {
+  const steps = ["", ""];
   const location = useLocation();
 
   const { id } = useParams();
@@ -158,10 +161,7 @@ function Edit() {
   const fileUploadHandler = () => {};
 
   const handleSubmit = (e) => {
-    // localStorage.setItem("data", data);
     navigate(`/confirm`, { state: data });
-    // e.preventDefault();
-    // dispatch({ type: "UPDATE_CONTACT", payload: data });
   };
 
   return (
@@ -169,12 +169,16 @@ function Edit() {
       <Box
         component="form"
         sx={{
-          "& .MuiTextField-root": { m: 5, width: "25ch" },
+          "& .MuiTextField-root": { m: 4, width: "25ch" },
         }}
         autoComplete="off"
-        // onClick={handleSubmit}
       >
         <div className="main">
+          <Stepper activeStep={1} alternativeLabel>
+            {steps.map((label) => (
+              <Step key={label}>{<StepLabel>{""}</StepLabel>}</Step>
+            ))}
+          </Stepper>
           <h2>Client Details </h2>
           <div>
             <TextField
@@ -206,7 +210,6 @@ function Edit() {
                 name="row-radio-buttons-group"
                 value={state.gender}
                 onChange={handleGender}
-                // onChange={handleChange}
               >
                 <FormControlLabel
                   value={"female"}
@@ -226,37 +229,12 @@ function Edit() {
               </RadioGroup>
             </FormControl>
             <TextField
-              // id="outlined-search"
-              // format={"YYYY/MM/DD"}
-              // inputFormat="MM/DD/YYYY"
               inputFormat="YYYY/MM/DD"
               type="date"
               label="Date of Birth (MM-DD-YYYY)"
               value={state.dateOfBirth}
               onChange={handleDOB}
             />
-
-            {/* <Stack direction="row" alignItems="center" spacing={2}> */}
-            {/* <label htmlFor="contained-button-file">
-            <Input
-              accept="image/*"
-              id="contained-button-file"
-              multiple
-              type="file"
-              onChange={handlePicture}
-            />
-            <Button variant="contained" component="span" className="p-1">
-              Select file
-            </Button>
-            <Button
-              variant="contained"
-              component="span"
-              onClick={handlePicture}
-            >
-              Upload
-            </Button>
-          </label>
-        </Stack> */}
 
             <TextField
               id="outlined-search"
@@ -290,13 +268,7 @@ function Edit() {
             />
           </div>
           <input type="file" onChange={handlePicture} className="picture" />
-          <button
-            // variant="contained"
-            onClick={fileUploadHandler}
-            // style={{ marginTop: "5rem", marginRight: "1rem", marginLeft: "30rem" }}
-          >
-            Upload
-          </button>
+          <button onClick={fileUploadHandler}>Upload</button>
         </div>
       </Box>
 
