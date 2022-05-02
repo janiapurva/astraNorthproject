@@ -43,12 +43,14 @@ function Confirm() {
   };
   return (
     <>
-      <div className="full-layout">
+      <div className="top">
         <Stepper activeStep={2} alternativeLabel>
           {steps.map((label) => (
             <Step key={label}>{<StepLabel>{""}</StepLabel>}</Step>
           ))}
         </Stepper>
+      </div>
+      <div className="full-layout">
         <h1>Review</h1>
         <div>
           {" "}

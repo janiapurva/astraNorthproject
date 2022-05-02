@@ -3,5 +3,9 @@
 }
 
 .full-layout {
-  padding: 10rem 10rem 10rem 25rem;
+  padding: 2rem 10rem 10rem 15rem;
+}
+
+.top {
+  margin-top: 7rem;
 }
