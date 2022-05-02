@@ -28,7 +28,6 @@ function Confirm() {
     id: parseInt(confirmData.id),
     ...confirmData,
   };
-  console.log(data);
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch({ type: "UPDATE_CONTACT", payload: data });

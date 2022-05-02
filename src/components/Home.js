@@ -11,7 +11,6 @@ import { useNavigate } from "react-router-dom";
 import Tooltip from "@mui/material/Tooltip";
 
 import "./home.css";
-import reportWebVitals from "../reportWebVitals";
 
 function Home() {
   const users = useSelector((state) => state);

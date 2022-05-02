@@ -36,7 +36,6 @@ const clientReducer = (state = intialState, action) => {
         client.id === action.payload.id ? action.payload : client
       );
       state = updateState;
-      console.log(state);
       return state;
     default:
       return state;
