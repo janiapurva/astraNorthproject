@@ -1,0 +1,15 @@
+.text-format {
+  overflow: "hidden";
+  text-overflow: "ellipsis";
+  width: "11rem";
+}
+.main {
+  max-width: 50rem;
+  margin-left: 25rem;
+  margin-top: 10rem;
+}
+.pointer {
+  cursor: pointer;
+  font-size: medium;
+  color: blue;
+}
